@@ -4,6 +4,8 @@ const app = express();
 const port = 8081;
 const fileupload = require('express-fileupload');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const segredo = "SegredoShareSpot123"; // Segredo para JWT
 
 const db = require('./models/db');
 const User = require('./models/User');  
@@ -162,16 +164,44 @@ app.post('/login', async (req, res) =>{
         if (!isMatch) {
             return res.status(400).send('Senha incorreta');
         }
-        if (user.isONG) {
-            res.redirect('/doacoes#ong');
-        } else {
-            res.redirect('/doacoes');
-        }
-       
+        const token = gerarJwt(user); // Gerar o token JWT para o usuário autenticado
+
+        res.json({ // Retornar o token e as informações do usuário para o frontend
+            token,
+            user: {
+                id: user.id,
+                name: user.name,
+                isONG: user.isONG,
+                email: user.email
+            }
+        });
+
     } catch (error) {
         res.status(500).send('Erro no servidor: ' + error);
     }   
 });
+
+//Funções de Token
+
+function gerarJwt(user){ // Função para gerar o token JWT, recebe o usuário como parâmetro e retorna o token
+    const token = jwt.sign({ id: user.id, isONG: user.isONG }, segredo, { expiresIn: "1h" });
+    return token;
+}
+
+function autenticarToken(req, res, next) { //Função para autenticar o token JWT
+    const token = req.headers['authorization'];
+
+    if (!token) return res.status(403).json({ message: 'Token não fornecido' });
+
+    try {
+        const verificar = jwt.verify(token, segredo);
+        req.userId = verificar.id;
+        req.isONG = verificar.isONG;
+        next();
+    } catch (error) {
+        res.status(401).send('Token inválido');
+    }
+}
 
 // Iniciar Servidor
 

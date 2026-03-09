@@ -85,8 +85,14 @@
 ```bash
     npm install express-fileupload
 ```
+### 8. JSON Web Token (JWT)
 
-### 8. Banco de Dados (MySQL)
+* Instalar o JWT:
+
+```bash
+    npm install jsonwebtoken
+```
+### 9. Banco de Dados (MySQL)
 
 * Criar usuário MySql:
 
