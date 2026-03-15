@@ -168,12 +168,7 @@ app.post('/login', async (req, res) =>{
 
         res.json({ // Retornar o token e as informações do usuário para o frontend
             token,
-            user: {
-                id: user.id,
-                name: user.name,
-                isONG: user.isONG,
-                email: user.email
-            }
+            user: { id: user.id, name: user.name, isONG: user.isONG, email: user.email }
         });
 
     } catch (error) {
