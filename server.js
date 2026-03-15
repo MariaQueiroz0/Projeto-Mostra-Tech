@@ -73,7 +73,11 @@ app.post('/donate', async function (req, res) {
             imageName:req.files.image.name,
             image:req.files.image.mv(__dirname + '/views/upload/' + req.files.image.name)
         });
-        res.redirect('/doacoes#ong');
+        if (req.body.isONG === 'true') {
+            res.redirect('/doacoes#ong');
+        } else {
+            res.redirect('/doacoes');
+        }
     } catch (error) {
         res.send("Erro ao cadastrar item: " + error);
     }
@@ -207,7 +211,7 @@ function autenticarToken(req, res, next) { //Função para autenticar o token JW
 
 try{
     app.listen(port);
-    console.log(`Servidor rodando em http://localhost:${port}`);
+    console.log(`Servidor rodando em http://localhost:${port}` +'/');
 }catch(error){
     console.log("Erro ao iniciar o servidor: " + error);
 }
