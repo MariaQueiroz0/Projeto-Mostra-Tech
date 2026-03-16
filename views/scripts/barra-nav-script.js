@@ -1,25 +1,39 @@
 //Script para carregar os elementos dinâmicos
 function elementoDinamico(caminhoHtml, idElemento, callback) {
-  fetch(caminhoHtml)
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById(idElemento).innerHTML = data;
-      callback?.();
-  });
+    fetch(caminhoHtml)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById(idElemento).innerHTML = data;
+            callback?.();
+        });
+}
+//Script para atualizar a barra de navegação com base no login do usuário e para o menu do ícone
+function atualizarNavbar() {
+    const linkCadastro = document.getElementById("link-cadastro");
+    const botaoSair = document.getElementById("btn-sair");
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if(user){ // Se o usuário estiver logado, exibe o nome e o botão de sair
+        linkCadastro.innerText = "Olá, " + user.name;
+        linkCadastro.href = "../routes/perfil.html";
+
+        botaoSair.style.display = "inline-block";
+        botaoSair.addEventListener("click", () => {
+            localStorage.removeItem("token");
+            localStorage.removeItem("user");
+            window.location.href = "/";
+        });
+    } else {
+        botaoSair.style.display = "none";
+    }
+
+    // Menu do ícone
+    const botaoMenu = document.getElementById("icone-menu");
+    const listaMenu = document.querySelector(".paginas-nav");
+    botaoMenu.addEventListener("click", () => {
+        listaMenu.classList.toggle("aberto");
+    });
 }
 
-//Função para mostrar o menu ao clicar no ícone
-function mostrarMenu() {
-  const botaoMenu = document.getElementById("icone-menu");
-  const listaMenu = document.querySelector(".paginas-nav");
-    
-  botaoMenu.addEventListener("click", () => {
-    listaMenu.classList.toggle("aberto");
-  });
-}
-
-//Chama a função para carregar a barra de navegação e a função de mostrar o menu
-elementoDinamico("../extras/barra-navegacao.html", "link-navbar", mostrarMenu);
-
-//Chama a função para carregar o footer
-elementoDinamico("../extras/", "");
+// Carrega a barra e atualiza a navbar
+elementoDinamico("../extras/barra-navegacao.html", "link-navbar", atualizarNavbar);

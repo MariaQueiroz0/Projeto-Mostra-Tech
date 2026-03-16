@@ -77,6 +77,10 @@ nav{
     color: #e32b2b;
 }
 
+.botao-sair {
+    display: none;
+}
+
 #icone-menu{
     font-size: 1.8rem;
     cursor: pointer;
