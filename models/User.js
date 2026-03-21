@@ -18,6 +18,12 @@ const User = db.sequelize. define('user', {
         unique: true, 
         allowNull: false
     },
+
+    phone:{
+        type: db.Sequelize.STRING,
+        unique: true,
+        allowNull: false
+    },
     password: { 
         type: db.Sequelize.STRING, 
         allowNull: false
