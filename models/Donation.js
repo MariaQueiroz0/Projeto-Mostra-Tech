@@ -20,6 +20,17 @@ const Donation = db.sequelize.define('donation', {
         type: db.Sequelize.STRING,
         allowNull: false
     },
+
+    donatorEmail: {
+        type: db.Sequelize.STRING,
+        allowNull: false
+    },
+
+    donatorPhone: {
+        type: db.Sequelize.STRING,
+        allowNull: false
+    },
+
     condition:{
         type: db.Sequelize.STRING,
         allowNull: true

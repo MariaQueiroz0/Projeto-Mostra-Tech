@@ -70,6 +70,8 @@ app.post('/donate', async function (req, res) {
             itemType:req.body.itemType,
             description:req.body.description,
             donator:req.body.donator,
+            donatorEmail:req.body.email,
+            donatorPhone:req.body.phone,
             condition:req.body.condition,
             imageName:req.files.image.name,
             image:req.files.image.mv(__dirname + '/views/upload/' + req.files.image.name)
@@ -134,6 +136,7 @@ app.get('/usuarios', async (req, res) => {
 //Página doações
 
 app.get('/doacoes', async (req, res) => {
+   
     try{
         const donations =  await Donation.findAll();
         if (donations===null) {
