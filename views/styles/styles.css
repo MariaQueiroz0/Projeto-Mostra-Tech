@@ -21,11 +21,11 @@ a{
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
+    background: linear-gradient(135deg, #063760 0%, #6a84b4 100%);
     border: none;
     border-radius: 50px;
     padding: 1rem 2rem;
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 6px 20px rgba(50, 65, 132, 0.4);
     cursor: pointer;
     transition: transform 0.3s;
     z-index: 50;
@@ -53,7 +53,7 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: white; /* rgba(255, 255, 255, 0.7); */
+    background-color: rgb(123, 162, 228); /* rgba(255, 255, 255, 0.7); */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -67,7 +67,7 @@ nav{
 }
 
 .paginas-nav a {
-  color: rgb(0, 0, 0);
+  color: rgb(253, 249, 249);
   font-weight: 500;
   transition: color 0.3s ease;
   font-family: 'Inter Tight', sans-serif;
@@ -136,11 +136,15 @@ nav{
 }
 
 /* ODS Section */
-.ods-section {
-    padding: 80px 5%;
-    background: #f8f9fa;
+.ods-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     text-align: center;
+    transition: transform 0.3s ease;
 }
+
 
 .ods-section h2 {
     font-size: 36px;
@@ -178,18 +182,27 @@ nav{
 }
 
 .ods-icon {
-    font-size: 48px;
-    margin-bottom: 15px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #063760;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    margin: 0 auto 15px;
 }
+
 
 .ods-card h3 {
     font-size: 20px;
     margin-bottom: 10px;
-    color: #000000;
+    color: #ffffff;
 }
 
 .ods-card p {
-    color: #666;
+    color: #575757;
     line-height: 1.6;
 }
 
@@ -447,7 +460,7 @@ nav{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.747);
 }
 
 .popup-conteudo {
@@ -550,28 +563,29 @@ nav{
 
 /* CSS da página de cadastro */
 
-.body-cadastro {
-    background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
+.body-cadastro, .body-perfil {
+    background: linear-gradient(135deg, #063760 0%, #6a84b4 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     height: 100vh;
+    padding:20px;
 }
 
-.container-form-cadastro {
+.container-form-cadastro{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
     width: 450px;
-    height: 550px;
+    height: 600px;
     margin-top: 45px;
-    border: 4px solid rgba(255, 255, 255, 0.3);
+    border: 4px solid rgba(82, 95, 104, 0.3);
     border-radius: 30px;
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(187, 189, 207, 0.762);
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
     
@@ -669,7 +683,7 @@ nav{
 /* Estilos apenas para o formulário de doação (não afetam o formulário de cadastro) */
 
 .body-cadastro-doacao {
-    background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
+    background: linear-gradient(135deg, #06745c 0%, #6d94dc 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -679,8 +693,8 @@ nav{
 .container-form-cad {
     display: flex;
     width: 450px;
-    height: 500px;
-    margin-top: 45px;
+    height: 620px;
+    margin-top: 70px;
     border: 4px solid rgba(255, 255, 255, 0.3);
     border-radius: 30px;
     overflow: hidden;
@@ -768,6 +782,45 @@ nav{
     height: 17px;
 }
 
+/* Estilos para página de perfil */
+
+.container-form-perfil {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    width: 450px;
+    height: 550px;
+    margin-top: 45px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.6);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    
+}
+
+.caixa-editar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 30px;
+}
+
+.tipo-usuario-linha {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.tipo-usuario-linha label {
+    font-weight: 600;
+    color: #555;
+}
+
 /* Ajustes para textarea e select em formulários com a mesma aparência */
 
 .titulo-form {
@@ -798,7 +851,7 @@ nav{
     justify-content: center;
     font-weight: 600;
     color: white;
-    background-color: #7fb3e8;
+    background-color: #174c82;
     border: solid 2px #5d95ce;
     cursor: pointer;
     transition: .3s;
@@ -806,8 +859,8 @@ nav{
 }
 
 .botao-entrar:hover {
-    background: #83ca9e;
-    border: solid 2px #68ac82;
+    background: #180a9a;
+    border: solid 2px #787afc;
     transform: translateY(-2px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
@@ -864,7 +917,7 @@ nav{
 /* ============================= */
 
 .body-sobre {
-    background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
+    background: linear-gradient(135deg, #063760 0%, #6a84b4 100%);
 }
 
 .sobre-container {
@@ -874,10 +927,10 @@ nav{
 .sobre-content {
     max-width: 900px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.445);
     padding: 60px;
     border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.693);
 }
 
 .sobre-header h1 {
@@ -888,14 +941,14 @@ nav{
 
 .sobre-subtitle {
     font-size: 1.15rem;
-    color: #555;
+    color: #252428;
     line-height: 1.6;
     margin-bottom: 50px;
 }
 
 .sobre-texto p {
     font-size: 1.05rem;
-    color: #444;
+    color: #3d3d3d;
     line-height: 1.8;
     margin-bottom: 22px;
     text-align: justify;
@@ -911,19 +964,19 @@ nav{
 .destaque {
     padding: 25px;
     border-radius: 14px;
-    background-color: #f8f9fa;
-    border: 1px solid #e0e0e0;
+    background-color: #c6d0da;
+    border: 1px solid #060e73;
 }
 
 .destaque h3 {
     font-size: 1.1rem;
     margin-bottom: 10px;
-    color: #333;
+    color: #170659;
 }
 
 .destaque p {
     font-size: 0.95rem;
-    color: #666;
+    color: #505c6ae9;
     line-height: 1.6;
 }
 
@@ -947,3 +1000,153 @@ footer {
     font-size: 0.9rem;
     margin-top: 10px;
 }
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* BODY */
+body {
+    background-color: #F5F7FA;
+    color: #1F2937;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #063760 0%, #6a84b4 100%);
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* BOTÕES */
+.btn-secondary {
+    display: inline-block;
+    margin: 10px;
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #063760 0%, #6a84b4 100%);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* EFEITO HOVER */
+.btn-secondary:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #063760 0%, #6a84b4 100%);
+}
+
+/* SEÇÕES */
+section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+/* ODS */
+.ods-cards {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.ods-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 300px;
+    transition: 0.3s;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+/* HOVER CARD */
+.ods-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.ods-icon {
+    font-size: 40px;
+    color: #bbd2fc;
+    margin-bottom: 15px;
+}
+
+/* COMO FUNCIONA */
+.steps {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.step {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 280px;
+    transition: 0.3s;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.step:hover {
+    transform: translateY(-8px);
+}
+
+/* NÚMERO */
+.step-number {
+    font-size: 2rem;
+    color: #1565C0;
+    margin-bottom: 10px;
+}
+
+/* CTA */
+.cta-section {
+    background: linear-gradient(135deg, #063760 0%, #6a84b4 100%);
+    color: white;
+    padding: 80px 20px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #1F2937;
+    color: white;
+}
+
+/* ANIMAÇÃO SUAVE AO ENTRAR */
+.ods-card,
+.step {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.ods-card:nth-child(2) { animation-delay: 0.2s; }
+.ods-card:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 

@@ -47,6 +47,8 @@ const Donation = db.sequelize.define('donation', {
 });
 
 
+//Donation.sync({force:true}); //Descomente esta
+
 //Donation.sync({force:true}); //Descomente esta linha para criar a tabela no banco de dados, depois comente novamente
 
 module.exports = Donation;
